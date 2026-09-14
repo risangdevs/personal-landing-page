@@ -37,7 +37,7 @@ export function ExperienceSettings({
       className="quiet-settings"
       id="experience-settings"
       role="region"
-      aria-label="Settings and contact"
+      aria-label="Settings"
     >
       <button
         className="detail-close"

@@ -1,14 +1,7 @@
 "use client";
 import { localUrl } from "@/lib/paths";
 import { useState } from "react";
-import {
-  ArrowRight,
-  ArrowUpRight,
-  Command,
-  Send,
-  Copy,
-  Check,
-} from "lucide-react";
+import { ArrowRight, Command } from "lucide-react";
 import { Modal } from "@/components/ui";
 import { profile, skills } from "@/data/profile";
 import { career } from "@/data/career";
@@ -18,8 +11,7 @@ type Props = {
   setPalette: (v: boolean) => void;
   terminal: boolean;
   setTerminal: (v: boolean) => void;
-  contact: boolean;
-  setContact: (v: boolean) => void;
+  onContact: () => void;
   onSystem: () => void;
   onOrder: () => void;
   onProfile: () => void;
@@ -30,17 +22,14 @@ export function SystemOverlays({
   setPalette,
   terminal,
   setTerminal,
-  contact,
-  setContact,
+  onContact,
   onSystem,
   onOrder,
   onProfile,
   onTrace,
 }: Props) {
   const [query, setQuery] = useState(""),
-    [line, setLine] = useState(""),
-    [draft, setDraft] = useState(""),
-    [copied, setCopied] = useState(false);
+    [line, setLine] = useState("");
   const [history, setHistory] = useState([
     "RISANG / MARKET SYSTEMS",
     "Type help to inspect available commands.",
@@ -56,7 +45,7 @@ export function SystemOverlays({
         window.location.href = localUrl("/resume");
       },
     },
-    { name: "Contact", action: () => setContact(true) },
+    { name: "Contact", action: onContact },
     { name: "Developer terminal", action: () => setTerminal(true) },
   ];
   const results = commands.filter((c) =>
@@ -110,8 +99,8 @@ export function SystemOverlays({
       case "contact":
       case "sudo hire risang":
         setTerminal(false);
-        setContact(true);
-        response = "Authorization granted. Opening communication channel…";
+        onContact();
+        response = "Contact details opened.";
         break;
       case "clear":
         setHistory([]);
@@ -206,115 +195,6 @@ export function SystemOverlays({
             <ArrowRight size={16} />
           </button>
         </form>
-      </Modal>
-      <Modal
-        open={contact}
-        onClose={() => setContact(false)}
-        title="Open a communication channel"
-      >
-        {draft ? (
-          <div className="success-state">
-            <h3>Your message is ready.</h3>
-            <p>Send it from your email app to complete the connection.</p>
-            <a
-              className="primary full"
-              href={`mailto:${profile.email}?subject=${encodeURIComponent("Portfolio connection")}&body=${encodeURIComponent(draft)}`}
-            >
-              Open email app <Send size={15} />
-            </a>
-            <button
-              className="secondary full"
-              onClick={async () => {
-                try {
-                  await navigator.clipboard.writeText(
-                    `To: ${profile.email}\n${draft}`,
-                  );
-                  setCopied(true);
-                } catch {
-                  setCopied(false);
-                }
-              }}
-            >
-              {copied ? <Check size={15} /> : <Copy size={15} />}{" "}
-              {copied ? "Copied" : "Copy draft"}
-            </button>
-            <p className="form-note">
-              {profile.email} · Nothing is sent automatically.
-            </p>
-            <button className="text-link" onClick={() => setDraft("")}>
-              Edit a new message
-            </button>
-          </div>
-        ) : (
-          <form
-            onSubmit={(e) => {
-              e.preventDefault();
-              const d = new FormData(e.currentTarget);
-              setDraft(
-                `Name: ${d.get("name")}\nEmail: ${d.get("email")}\nCompany: ${d.get("company") || "—"}\nIntent: ${d.get("intent")}\n\n${d.get("message")}`,
-              );
-              setCopied(false);
-            }}
-          >
-            <p className="page-intro">
-              A system to build. A problem to solve. Let’s talk.
-            </p>
-            <div className="form-grid">
-              <label className="field">
-                Name
-                <input
-                  name="name"
-                  autoComplete="name"
-                  required
-                  maxLength={100}
-                />
-              </label>
-              <label className="field">
-                Email
-                <input
-                  name="email"
-                  type="email"
-                  autoComplete="email"
-                  required
-                  maxLength={160}
-                />
-              </label>
-            </div>
-            <label className="field">
-              Company <span className="muted">Optional</span>
-              <input
-                name="company"
-                autoComplete="organization"
-                maxLength={150}
-              />
-            </label>
-            <label className="field">
-              Intent
-              <select name="intent">
-                {[
-                  "Hiring",
-                  "Collaboration",
-                  "Consulting",
-                  "Research",
-                  "Other",
-                ].map((i) => (
-                  <option key={i}>{i}</option>
-                ))}
-              </select>
-            </label>
-            <label className="field">
-              Message
-              <textarea name="message" required maxLength={4000} rows={4} />
-            </label>
-            <button className="primary full">
-              Prepare message <ArrowRight size={15} />
-            </button>
-            <p className="form-note">
-              Continues in your email app. No messages are sent or stored by
-              this site.
-            </p>
-          </form>
-        )}
       </Modal>
     </>
   );

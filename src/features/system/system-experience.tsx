@@ -19,6 +19,8 @@ import { SystemFallback } from "./fallback";
 import { OrderSurface } from "./trading-surface";
 import { SystemOverlays } from "./system-overlays";
 import { ExperienceSettings } from "./experience-settings";
+import { ContactSection } from "./contact-section";
+import { FeaturedWork } from "./featured-work";
 import { OverviewDetail } from "./overview-detail";
 const SystemScene = dynamic(() => import("@/three/scene"), {
   ssr: false,
@@ -42,8 +44,7 @@ export function SystemExperience() {
   const [detail, setDetail] = useState<"work" | "about" | null>(null);
   const [settings, setSettings] = useState(false);
   const [palette, setPalette] = useState(false),
-    [terminal, setTerminal] = useState(false),
-    [contact, setContact] = useState(false);
+    [terminal, setTerminal] = useState(false);
   const detailRef = useRef<HTMLDivElement>(null);
   const setPhase = useNavigation((s) => s.setPhase),
     setMode = useNavigation((s) => s.setMode),
@@ -96,6 +97,10 @@ export function SystemExperience() {
     home();
     setDetail("about");
   }, [home]);
+  useEffect(() => {
+    if (new URLSearchParams(window.location.search).get("view") === "about")
+      about();
+  }, [about]);
   const tracePacket = useCallback(() => {
     const nav = useNavigation.getState();
     const p = nav.packet || marketEngine.getSnapshot().packets.at(-1);
@@ -144,11 +149,16 @@ export function SystemExperience() {
           </span>
         </button>
         <div className="quiet-header-actions">
-          <a href={localUrl("/resume")}>
-            Résumé <ArrowUpRight size={13} />
-          </a>
+          <nav className="portfolio-navigation" aria-label="Main navigation">
+            <a href={overview ? "#work" : `${localUrl("/")}#work`}>Work</a>
+            <button onClick={about}>About</button>
+            <a href={localUrl("/resume")}>
+              Résumé <ArrowUpRight size={13} />
+            </a>
+            <a href="#contact">Contact</a>
+          </nav>
           <button
-            aria-label="Settings and contact"
+            aria-label="Settings"
             aria-expanded={settings}
             aria-controls="experience-settings"
             onClick={() => setSettings((v) => !v)}
@@ -161,7 +171,9 @@ export function SystemExperience() {
             onClose={() => setSettings(false)}
             onContact={() => {
               setSettings(false);
-              setContact(true);
+              document
+                .getElementById("contact")
+                ?.scrollIntoView({ behavior: reduced ? "instant" : "smooth" });
             }}
             onCommands={() => {
               setSettings(false);
@@ -186,9 +198,9 @@ export function SystemExperience() {
                   <br />
                   React Native, fintech, and the systems behind the screen.
                 </p>
-                <button className="primary" onClick={() => setDetail("work")}>
+                <a className="primary" href="#work">
                   Explore my work <ArrowRight size={18} />
-                </button>
+                </a>
                 <span className="quiet-intro-note">
                   Start with MECI, a securities trading project.
                 </span>
@@ -210,7 +222,11 @@ export function SystemExperience() {
                 </div>
                 <button
                   className={`overview-node node-work ${detail === "work" ? "selected" : ""}`}
-                  onClick={() => setDetail("work")}
+                  onClick={() =>
+                    document.getElementById("work")?.scrollIntoView({
+                      behavior: reduced ? "instant" : "smooth",
+                    })
+                  }
                 >
                   <strong>
                     MECI <ArrowUpRight size={14} />
@@ -234,12 +250,7 @@ export function SystemExperience() {
                 </button>
               </div>
             </section>
-            <div className="quiet-baseline">
-              <span>Choose what interests you. No required tour.</span>
-              <a href={localUrl("/projects/meci")}>
-                Project MECI · Read the case study ↗
-              </a>
-            </div>
+            <FeaturedWork onOrder={openOrder} />
             {detail && (
               <div
                 ref={detailRef}
@@ -369,7 +380,10 @@ export function SystemExperience() {
                     onReturn={() => {
                       setPhase("opening");
                       select("core");
-                      setDetail("work");
+                      setDetail(null);
+                      requestAnimationFrame(() =>
+                        document.getElementById("work")?.scrollIntoView(),
+                      );
                     }}
                     onArchitecture={() => {
                       how();
@@ -382,6 +396,7 @@ export function SystemExperience() {
           </section>
         )}
       </main>
+      <ContactSection />
       <footer className="quiet-footer">
         <span>Risang Ganie Salam · Engineering portfolio</span>
         {mode === "3d" && (
@@ -393,8 +408,13 @@ export function SystemExperience() {
         setPalette={setPalette}
         terminal={terminal}
         setTerminal={setTerminal}
-        contact={contact}
-        setContact={setContact}
+        onContact={() =>
+          requestAnimationFrame(() =>
+            document
+              .getElementById("contact")
+              ?.scrollIntoView({ behavior: reduced ? "instant" : "smooth" }),
+          )
+        }
         onSystem={how}
         onOrder={openOrder}
         onProfile={about}

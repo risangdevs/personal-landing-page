@@ -9,7 +9,7 @@ import { marketEngine } from "@/engine/market-engine";
 function MetalBox({
   position = [0, 0, 0],
   size = [1, 1, 1],
-  color = "#222733",
+  color = "#181c19",
 }: {
   position?: [number, number, number];
   size?: [number, number, number];
@@ -32,7 +32,7 @@ export function CoreMachine() {
       <MetalBox
         position={[0, -0.2, 0]}
         size={[2.35, 0.24, 2.05]}
-        color="#383c49"
+        color="#202620"
       />
       <MetalBox position={[0, 0.04, 0]} size={[2.12, 0.15, 1.82]} />
       {[-0.82, 0.82].map((x) => (
@@ -42,7 +42,7 @@ export function CoreMachine() {
               key={i}
               position={[0, 0, -0.75 + i * 0.15]}
               size={[0.38, 1.18, 0.05]}
-              color="#3a3d4b"
+              color="#202620"
             />
           ))}
         </group>
@@ -50,7 +50,7 @@ export function CoreMachine() {
       <MetalBox
         position={[0, 1.29, 0]}
         size={[2.12, 0.17, 1.82]}
-        color="#38394a"
+        color="#202620"
       />
       <group ref={turbine} position={[0, 0.7, 0]}>
         {[0, 1, 2].map((i) => (
@@ -61,7 +61,7 @@ export function CoreMachine() {
           >
             <torusGeometry args={[0.48, 0.035, 6, 40]} />
             <meshStandardMaterial
-              color="#9081bf"
+              color="#9ca69f"
               metalness={0.75}
               roughness={0.35}
             />
@@ -70,8 +70,8 @@ export function CoreMachine() {
         <mesh>
           <cylinderGeometry args={[0.26, 0.26, 0.83, 12]} />
           <meshStandardMaterial
-            color="#3c354c"
-            emissive="#7e5fa9"
+            color="#202620"
+            emissive="#7f9186"
             emissiveIntensity={0.28}
             metalness={0.75}
             roughness={0.24}
@@ -84,13 +84,13 @@ export function CoreMachine() {
             key={`${x}${z}`}
             position={[x, 0.66, z]}
             size={[0.09, 1.45, 0.09]}
-            color="#92909d"
+            color="#7f9186"
           />
         )),
       )}
       <mesh position={[0, 0.67, 0.92]}>
         <planeGeometry args={[1.14, 0.74]} />
-        <meshStandardMaterial color="#0b1019" metalness={0.1} roughness={0.5} />
+        <meshStandardMaterial color="#0d0f0e" metalness={0.1} roughness={0.5} />
       </mesh>
       <Html
         zIndexRange={[5, 0]}
@@ -112,8 +112,8 @@ export function CoreMachine() {
       <mesh position={[0, 1.395, 0.25]} rotation={[-Math.PI / 2, 0, 0]}>
         <planeGeometry args={[0.75, 0.65]} />
         <meshStandardMaterial
-          color="#111624"
-          emissive="#766490"
+          color="#101411"
+          emissive="#586a61"
           emissiveIntensity={0.18}
         />
       </mesh>
@@ -160,7 +160,7 @@ export function ModuleNode({ module }: { module: SystemModule }) {
       <MetalBox
         size={[1.55, 0.15, 1.22]}
         position={[0, 0, 0]}
-        color={selected ? "#554866" : "#282d39"}
+        color={selected ? "#2b342e" : "#181c19"}
       />
       {module.id === "feed" ? (
         <group>
@@ -195,7 +195,7 @@ export function ModuleNode({ module }: { module: SystemModule }) {
             >
               <torusGeometry args={[0.4, 0.07, 8, 24]} />
               <meshStandardMaterial
-                color="#6a8495"
+                color="#7f9186"
                 metalness={0.8}
                 roughness={0.25}
               />
@@ -210,7 +210,7 @@ export function ModuleNode({ module }: { module: SystemModule }) {
               <MetalBox
                 position={[0, 0.2 + i * 0.19, 0]}
                 size={[module.id === "data" ? 1.13 : 0.85, 0.1, 0.8]}
-                color={i % 2 ? "#3e394e" : "#333644"}
+                color={i % 2 ? "#202620" : "#202620"}
               />
               <mesh position={[0.48, 0.2 + i * 0.19, 0.41]}>
                 <boxGeometry args={[0.12, 0.024, 0.015]} />
@@ -224,11 +224,11 @@ export function ModuleNode({ module }: { module: SystemModule }) {
           <MetalBox
             size={[1.24, 0.84, 0.6]}
             position={[0, 0.49, -0.15]}
-            color="#363345"
+            color="#202620"
           />
           <mesh position={[0, 0.54, 0.163]}>
             <planeGeometry args={[1.08, 0.56]} />
-            <meshStandardMaterial color="#0b1119" />
+            <meshStandardMaterial color="#0d0f0e" />
           </mesh>
           <Html
             zIndexRange={[5, 0]}
@@ -256,7 +256,7 @@ export function ModuleNode({ module }: { module: SystemModule }) {
               key={i}
               position={[-0.52 + i * 0.13, 0.56, 0]}
               size={[0.05, 0.36, 0.8]}
-              color="#596177"
+              color="#586a61"
             />
           ))}
         </group>
@@ -265,13 +265,13 @@ export function ModuleNode({ module }: { module: SystemModule }) {
           <MetalBox
             position={[0, 0.67, 0]}
             size={[0.66, 1.18, 0.12]}
-            color="#515764"
+            color="#2b342e"
           />
           <mesh position={[0, 0.69, 0.067]}>
             <planeGeometry args={[0.54, 0.97]} />
             <meshStandardMaterial
-              color="#171b2c"
-              emissive="#35314d"
+              color="#141815"
+              emissive="#202620"
               emissiveIntensity={0.5}
             />
           </mesh>
@@ -283,7 +283,7 @@ export function ModuleNode({ module }: { module: SystemModule }) {
               [0.06, 0.74, 0.08],
               [0.2, 0.85, 0.08],
             ]}
-            color="#a494ca"
+            color="#9ca69f"
             lineWidth={1.5}
           />
         </group>
@@ -329,14 +329,14 @@ export function Conduits() {
         const mid = a.clone().lerp(b, 0.5);
         return (
           <group key={m.id}>
-            <Line points={[a, mid, b]} color="#3b4051" lineWidth={2} />
+            <Line points={[a, mid, b]} color="#202620" lineWidth={2} />
             <Line
               points={[
                 [0, 0.18, 0],
                 [m.position[0] * 0.55, 0.18, m.position[2] * 0.55],
                 [m.position[0], 0.18, m.position[2]],
               ]}
-              color="#262c38"
+              color="#181c19"
               lineWidth={1}
             />
           </group>

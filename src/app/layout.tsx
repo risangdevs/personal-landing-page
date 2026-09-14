@@ -1,6 +1,7 @@
 import { localUrl } from "@/lib/paths";
 import { pageMetadata, siteUrl } from "@/lib/site";
 import type { Metadata } from "next";
+import "@fontsource-variable/plus-jakarta-sans";
 import "./globals.css";
 import "./journey.css";
 import "./simplified.css";

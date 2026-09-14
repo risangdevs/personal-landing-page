@@ -110,7 +110,7 @@ function ExplodedScreen() {
           <mesh>
             <boxGeometry args={[3.9, 2.5, 0.035]} />
             <meshStandardMaterial
-              color={i === 0 ? "#171b2b" : "#262432"}
+              color={i === 0 ? "#141815" : "#181c19"}
               transparent
               opacity={i === 0 ? 0.92 : 0.62}
               metalness={0.4}
@@ -125,7 +125,7 @@ function ExplodedScreen() {
               [1.9, -1.2, 0.03],
               [-1.9, -1.2, 0.03],
             ]}
-            color="#8b7ca7"
+            color="#7f9186"
             transparent
             opacity={0.55}
           />
@@ -232,23 +232,23 @@ export default function SystemScene() {
         }
       >
         <ContextLossGuard />
-        <color attach="background" args={["#08090c"]} />
-        <fog attach="fog" args={["#08090c", 23, 43]} />
+        <color attach="background" args={["#0d0f0e"]} />
+        <fog attach="fog" args={["#0d0f0e", 23, 43]} />
         <ambientLight intensity={0.7} />
         <directionalLight
           position={[3, 8, 5]}
           intensity={3.1}
-          color="#e0dce9"
+          color="#c5cbc6"
         />
         <directionalLight
           position={[-7, 3, -4]}
           intensity={2.8}
-          color="#77759d"
+          color="#7f9186"
         />
         <pointLight
           position={[0, 3, 0]}
           intensity={6}
-          color="#ad91d0"
+          color="#8eddb5"
           distance={8}
         />
         <Suspense fallback={null}>
@@ -256,7 +256,7 @@ export default function SystemScene() {
             <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.01, 0]}>
               <circleGeometry args={[8.5, 64]} />
               <meshStandardMaterial
-                color="#10131a"
+                color="#101411"
                 metalness={0.3}
                 roughness={0.72}
               />
@@ -268,7 +268,7 @@ export default function SystemScene() {
                 position={[0, 0.002, 0]}
               >
                 <ringGeometry args={[radius, radius + 0.012, 96]} />
-                <meshBasicMaterial color="#252a35" side={THREE.DoubleSide} />
+                <meshBasicMaterial color="#181c19" side={THREE.DoubleSide} />
               </mesh>
             ))}
             <CoreMachine />

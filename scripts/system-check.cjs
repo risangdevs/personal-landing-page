@@ -31,13 +31,13 @@ const assert = require("node:assert/strict");
     0,
   );
   await page
-    .getByRole("button", { name: "Explore my work", exact: true })
+    .getByRole("link", { name: "Explore my work", exact: true })
     .click();
   await page
     .getByRole("region", { name: "Project MECI", exact: true })
     .waitFor();
   await page
-    .getByRole("button", { name: "Try the order book", exact: true })
+    .getByRole("button", { name: /Try the order book/, exact: false })
     .click();
   await page.getByRole("heading", { name: "MECI / BBCA" }).waitFor();
   await page.waitForTimeout(1200);
@@ -75,7 +75,7 @@ const assert = require("node:assert/strict");
     await page.getByRole("button", { name: "Continue", exact: true }).click();
   await page.getByText("STEP 7 OF 7", { exact: true }).waitFor();
   await page
-    .getByRole("button", { name: "Try the order book", exact: true })
+    .getByRole("button", { name: /Try the order book/, exact: false })
     .click();
   await page.getByRole("heading", { name: "MECI / BBCA" }).waitFor();
   for (const width of [768, 390, 320]) {

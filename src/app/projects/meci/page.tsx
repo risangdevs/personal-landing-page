@@ -1,3 +1,4 @@
+import { MeciPlayground } from "./playground";
 import "./meci.css";
 import {
   Activity,
@@ -55,6 +56,12 @@ export default function MeciCaseStudy() {
         <span>/</span>
         <span>Project MECI</span>
       </nav>
+      <nav className="case-navigation" aria-label="Main navigation">
+        <a href={`${localUrl("/")}#work`}>Work</a>
+        <a href={localUrl("/?view=about")}>About</a>
+        <a href={localUrl("/resume")}>Résumé</a>
+        <a href={`${localUrl("/")}#contact`}>Contact</a>
+      </nav>
       <header className="meci-hero">
         <div>
           <span className="eyebrow">MOBILE ENGINEERING / CASE STUDY</span>
@@ -69,77 +76,7 @@ export default function MeciCaseStudy() {
             Try the interactive order book <ArrowUpRight size={17} />
           </a>
         </div>
-        <figure
-          className="meci-preview"
-          aria-label="Illustrative BBCA market depth preview"
-        >
-          <div className="preview-top">
-            <span>
-              MECI <small>/ MARKET VIEW</small>
-            </span>
-            <span className="preview-dot">SIMULATED</span>
-          </div>
-          <div className="preview-quote">
-            <div>
-              <span>BBCA</span>
-              <strong>7,125</strong>
-            </div>
-            <span className="negative">−75 (−1.04%)</span>
-          </div>
-          <svg
-            className="preview-chart"
-            viewBox="0 0 400 90"
-            role="img"
-            aria-label="Illustrative price sparkline"
-          >
-            <path
-              d="M0 70H400M0 35H400"
-              stroke="#302839"
-              strokeDasharray="3 6"
-            />
-            <path
-              d="M0 65 L22 58 L40 63 L62 38 L85 44 L110 30 L135 42 L160 20 L183 32 L205 26 L230 49 L252 40 L277 52 L305 39 L330 46 L355 30 L375 38 L400 32"
-              fill="none"
-              stroke="#b6a0d1"
-              strokeWidth="2.5"
-            />
-          </svg>
-          <div className="preview-book-head">
-            <span>LOT</span>
-            <span>BID</span>
-            <span>ASK</span>
-            <span>LOT</span>
-          </div>
-          {[0, 1, 2, 3, 4].map((i) => (
-            <div className="preview-book-row" key={i}>
-              <span
-                className="preview-bid"
-                style={{ backgroundSize: `${35 + i * 13}% 100%` }}
-              >
-                {(34200 + i * 12917).toLocaleString("en-US")}
-              </span>
-              <strong className="negative">
-                {(7100 - i * 25).toLocaleString("en-US")}
-              </strong>
-              <strong
-                className={
-                  i < 3 ? "negative" : i === 3 ? "preview-neutral" : "positive"
-                }
-              >
-                {(7125 + i * 25).toLocaleString("en-US")}
-              </strong>
-              <span
-                className="preview-ask"
-                style={{ backgroundSize: `${22 + i * 12}% 100%` }}
-              >
-                {(8763 + i * 7642).toLocaleString("en-US")}
-              </span>
-            </div>
-          ))}
-          <figcaption>
-            Illustrative interface · Fictional market data
-          </figcaption>
-        </figure>
+        <MeciPlayground />
       </header>
       <dl className="case-facts">
         <div>

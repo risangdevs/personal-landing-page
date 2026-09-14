@@ -78,7 +78,7 @@ Project MECI (Market Engagement & Client Interface) is a public-facing case-stud
 
 The WebSocket module represents a conceptual production boundary. This demo opens no WebSocket or exchange connection. Market prices, volume, and orders are simulated. The architecture is illustrative, not a disclosure of an employer’s internal implementation. No fake financial career returns are used.
 
-Contact prepares a `mailto:` draft and supports copying it. The visitor sends it in their own email app. No form data is sent or stored automatically.
+Contact shows the public email address, opens the visitor’s email app, and supports copying the address. LinkedIn and GitHub provide secondary contact routes. There is no contact form or server-side email delivery.
 
 ## Validation
 

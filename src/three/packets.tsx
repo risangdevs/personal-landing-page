@@ -110,8 +110,8 @@ export function DataPackets() {
       >
         <boxGeometry args={[1, 1, 1]} />
         <meshStandardMaterial
-          color="#b3a0e3"
-          emissive="#8771aa"
+          color="#8eddb5"
+          emissive="#7f9186"
           emissiveIntensity={0.55}
           metalness={0.15}
           roughness={0.4}

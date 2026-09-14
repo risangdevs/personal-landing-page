@@ -26,14 +26,14 @@ export function MarketChart({
       height: large ? 270 : 205,
       layout: {
         background: { type: ColorType.Solid, color: "transparent" },
-        textColor: "#858b99",
+        textColor: "#7f9186",
         fontFamily: "monospace",
         fontSize: 11,
         attributionLogo: true,
       },
       grid: {
         vertLines: { visible: false },
-        horzLines: { color: "#20232c", style: 2 },
+        horzLines: { color: "#141815", style: 2 },
       },
       rightPriceScale: { borderVisible: false },
       timeScale: {
@@ -42,18 +42,18 @@ export function MarketChart({
         secondsVisible: false,
       },
       crosshair: {
-        vertLine: { color: "#8275ce", labelBackgroundColor: "#6253b3" },
-        horzLine: { color: "#8275ce", labelBackgroundColor: "#6253b3" },
+        vertLine: { color: "#8eddb5", labelBackgroundColor: "#8eddb5" },
+        horzLine: { color: "#8eddb5", labelBackgroundColor: "#8eddb5" },
       },
       handleScroll: true,
       handleScale: true,
     });
     const series = chart.addSeries(AreaSeries, {
-      lineColor: "#9987ff",
+      lineColor: "#c5cbc6",
       topColor: "rgba(139,117,255,.18)",
       bottomColor: "rgba(139,117,255,0)",
       lineWidth: 2,
-      priceLineColor: "#9987ff",
+      priceLineColor: "#c5cbc6",
       lastValueVisible: true,
     });
     const now = 1726142400;
