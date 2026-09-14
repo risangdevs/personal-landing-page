@@ -19,7 +19,7 @@ npm test
 npm run build
 ```
 
-Production is a static GitHub Pages export for `https://risangdevs.github.io/personal-landing-page/`. `npm run build` writes the deployable site to `out/`, including the `/personal-landing-page` asset/link prefix and `.nojekyll`. Upload the contents of `out/` to the Pages deployment; no Node server is needed in production. Local `npm run dev` keeps the root URL at port 3000. `npm start` is not used with static export.
+Production is a static GitHub Pages export for `https://risangdevs.github.io/personal-landing-page/`. `npm run build` writes the deployable site to `out/`, including the `/personal-landing-page` asset/link prefix and `.nojekyll`. The GitHub Actions workflow builds and validates the site on pushes to `main`, then publishes `out/` to Pages. Set the Pages publishing source to GitHub Actions. No Node server is needed in production. Local `npm run dev` keeps the root URL at port 3000. `npm start` is not used with static export.
 
 The production URL defaults to the supplied GitHub Pages address. `SITE_URL` can override canonical and sitemap URLs at build time; if the hosting path changes, update `basePath` and `NEXT_PUBLIC_BASE_PATH` in `next.config.ts` as well.
 
