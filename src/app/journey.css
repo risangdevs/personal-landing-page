@@ -610,6 +610,18 @@
   display: block;
   margin-top: 5px;
 }
+.receiver-array-label,
+.gateway-status-label {
+  display: block;
+  color: #8eddb5;
+  font:
+    500 7px/1 "SFMono-Regular",
+    Consolas,
+    monospace;
+  letter-spacing: 0.8px;
+  white-space: nowrap;
+  text-shadow: 0 0 12px #8eddb566;
+}
 .node-label {
   display: flex;
   align-items: center;
@@ -920,7 +932,7 @@
 .trace-progress span.complete {
   background: #9ca69f;
 }
-.trace-caption > div:nth-child(2) {
+.trace-caption > div:first-child {
   display: flex;
   align-items: center;
   justify-content: space-between;
