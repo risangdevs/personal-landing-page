@@ -1,0 +1,380 @@
+.meci-visual {
+  max-width: 1200px;
+}
+.meci-visual .meci-hero {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 65px;
+  align-items: center;
+  margin: 60px 0 45px;
+}
+.meci-visual h1 {
+  font-size: clamp(42px, 5vw, 64px);
+}
+.meci-visual .case-subtitle {
+  font-size: 14px;
+  margin: 16px 0 25px;
+}
+.meci-hero > div > p:last-of-type {
+  font-size: 24px;
+  color: #c9bfd4;
+  line-height: 1.45;
+  margin-bottom: 28px;
+}
+.meci-hero .eyebrow {
+  font-size: 10px;
+  letter-spacing: 1.5px;
+}
+.meci-visual .primary {
+  gap: 16px;
+}
+.meci-preview {
+  margin: 0;
+  border: 1px solid #4c3d59;
+  border-radius: 13px;
+  padding: 22px;
+  background: linear-gradient(145deg, #191521, #101019);
+  box-shadow: 0 24px 70px #0005;
+  font-variant-numeric: tabular-nums;
+}
+.preview-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  letter-spacing: 1px;
+}
+.preview-top small {
+  font-size: 8px;
+  color: #8a7a9a;
+}
+.preview-dot {
+  color: #7bc6a4;
+  font-size: 8px;
+  letter-spacing: 1px;
+}
+.preview-dot:before {
+  content: "";
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  background: currentColor;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+.preview-quote {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  margin: 25px 0 10px;
+}
+.preview-quote > div {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+.preview-quote span {
+  font-size: 11px;
+}
+.preview-quote strong {
+  font-size: 30px;
+  font-weight: 500;
+}
+.preview-chart {
+  display: block;
+  width: 100%;
+  height: 78px;
+  margin: 15px 0;
+}
+.preview-book-head,
+.preview-book-row {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr 1.2fr;
+  text-align: right;
+  gap: 5px;
+  font-size: 10px;
+}
+.preview-book-head {
+  color: #8f819f;
+  font-size: 8px;
+  padding: 9px 0;
+  border-top: 1px solid #352d40;
+}
+.preview-book-row {
+  margin-bottom: 5px;
+  min-height: 24px;
+  align-items: stretch;
+}
+.preview-book-row > * {
+  padding: 5px 3px;
+  font-weight: 400;
+}
+.preview-bid {
+  background: linear-gradient(#234a355c, #234a355c) right center / 50% 100%
+    no-repeat;
+  color: #b4b9c3;
+}
+.preview-ask {
+  background: linear-gradient(#5329325c, #5329325c) left center / 50% 100%
+    no-repeat;
+  color: #b4b9c3;
+}
+.preview-neutral {
+  color: #ddd6e6;
+}
+.meci-preview figcaption {
+  border-top: 1px solid #352d40;
+  padding-top: 13px;
+  margin-top: 13px;
+  color: #93819f;
+  font-size: 9px;
+}
+.meci-section-heading {
+  margin-bottom: 25px;
+}
+.meci-section-heading .eyebrow,
+.meci-next .eyebrow {
+  font-size: 10px;
+  letter-spacing: 1.4px;
+  color: #9580a5;
+}
+.meci-section-heading h2,
+.meci-next h2 {
+  margin: 12px 0;
+}
+.meci-scope-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.meci-scope-grid article {
+  padding: 25px;
+  border: 1px solid #332a3e;
+  border-radius: 9px;
+  background: #121018;
+}
+.meci-scope-grid svg {
+  color: #bba0d0;
+  margin-bottom: 24px;
+}
+.meci-scope-grid h3 {
+  font-size: 18px;
+  font-weight: 500;
+}
+.meci-scope-grid p {
+  font-size: 13px;
+  line-height: 1.9;
+  margin: 10px 0 0;
+}
+.meci-decision {
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  gap: 45px;
+  padding: 28px 0;
+  border-top: 1px solid #332a3e;
+}
+.meci-decision-number {
+  font: 11px monospace;
+  color: #8e6caa;
+}
+.meci-decision h3 {
+  font-size: 20px;
+  font-weight: 500;
+  margin: 13px 0 8px;
+  max-width: 250px;
+  line-height: 1.4;
+}
+.meci-decision p {
+  font-size: 13px;
+  margin: 8px 0;
+}
+.meci-diagram {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  padding: 0;
+  margin: 0 0 17px;
+}
+.meci-diagram li {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border: 1px solid #45334f;
+  border-radius: 8px;
+  padding: 20px 13px;
+  background: #17121d;
+}
+.meci-diagram li:not(:last-child):after {
+  content: "→";
+  position: absolute;
+  right: -18px;
+  top: 45%;
+  color: #8d729f;
+}
+.meci-diagram svg {
+  color: #b79bcd;
+  margin-bottom: 4px;
+}
+.meci-diagram strong {
+  font-size: 12px;
+  font-weight: 500;
+}
+.meci-diagram small {
+  font-size: 10px;
+  color: #927fa2;
+}
+.meci-decision summary {
+  cursor: pointer;
+  font-size: 12px;
+  color: #ac96bc;
+  padding: 9px 0;
+}
+.meci-decision details p {
+  font-size: 13px;
+  line-height: 1.8;
+  padding: 6px 0;
+}
+.meci-disclosure {
+  display: flex;
+  align-items: start;
+  gap: 12px;
+  background: #14111a;
+  padding: 17px 20px;
+  border-radius: 7px;
+  color: #94829f;
+}
+.meci-disclosure svg {
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+.meci-disclosure p {
+  font-size: 11px;
+  margin: 0;
+  line-height: 1.7;
+}
+.meci-visual .meci-next {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  margin: 45px 0;
+}
+.meci-next h2 {
+  max-width: 430px;
+}
+.meci-next p {
+  font-size: 13px;
+  margin: 10px 0;
+}
+.meci-next .case-links {
+  flex-direction: column;
+  align-items: start;
+  gap: 18px;
+  flex-shrink: 0;
+}
+@media (max-width: 800px) {
+  .meci-visual .meci-hero {
+    gap: 28px;
+  }
+  .meci-visual .meci-hero .primary {
+    font-size: 12px;
+    gap: 8px;
+  }
+  .meci-preview {
+    padding: 16px;
+  }
+  .meci-decision {
+    gap: 25px;
+    grid-template-columns: 1fr 1.5fr;
+  }
+  .meci-diagram {
+    gap: 16px;
+  }
+  .meci-diagram li {
+    padding: 15px 8px;
+  }
+  .meci-diagram li:not(:last-child):after {
+    right: -14px;
+  }
+}
+@media (max-width: 600px) {
+  .meci-visual .meci-hero {
+    grid-template-columns: 1fr;
+    margin: 40px 0 30px;
+    gap: 32px;
+  }
+  .meci-visual h1 {
+    font-size: 46px;
+  }
+  .meci-hero > div > p:last-of-type {
+    font-size: 23px;
+  }
+  .meci-preview {
+    padding: 20px;
+  }
+  .meci-visual .case-facts {
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+  }
+  .meci-visual .case-facts > div:last-child {
+    grid-column: 1 / -1;
+  }
+  .meci-scope-grid {
+    gap: 9px;
+  }
+  .meci-scope-grid article {
+    padding: 16px 10px;
+  }
+  .meci-scope-grid h3 {
+    font-size: 15px;
+  }
+  .meci-scope-grid p {
+    font-size: 11px;
+    line-height: 1.75;
+  }
+  .meci-scope-grid svg {
+    margin-bottom: 15px;
+    width: 20px;
+  }
+  .meci-section-heading h2,
+  .meci-next h2 {
+    font-size: 23px;
+    line-height: 1.35;
+  }
+  .meci-decision {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  .meci-decision h3 {
+    max-width: none;
+  }
+  .meci-diagram li {
+    padding: 16px 9px;
+  }
+  .meci-diagram strong {
+    font-size: 11px;
+  }
+  .meci-visual .meci-next {
+    flex-direction: column;
+    align-items: start;
+    gap: 12px;
+  }
+}
+@media (max-width: 400px) {
+  .meci-scope-grid {
+    grid-template-columns: 1fr;
+  }
+  .meci-scope-grid article {
+    display: grid;
+    grid-template-columns: 22px 64px 1fr;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 12px;
+  }
+  .meci-scope-grid svg,
+  .meci-scope-grid p {
+    margin: 0;
+  }
+}

@@ -1,3 +1,18 @@
+import "./meci.css";
+import {
+  Activity,
+  ArrowUpRight,
+  MousePointer2,
+  ShieldCheck,
+  Radio,
+  Database,
+  Layers3,
+  Smartphone,
+  Cable,
+  Cpu,
+  Check,
+  Info,
+} from "lucide-react";
 import { localUrl } from "@/lib/paths";
 import { profile } from "@/data/profile";
 import { pageMetadata, absoluteUrl } from "@/lib/site";
@@ -28,7 +43,7 @@ export default function MeciCaseStudy() {
     ],
   };
   return (
-    <main id="main" className="case-study">
+    <main id="main" className="case-study meci-visual">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -40,14 +55,91 @@ export default function MeciCaseStudy() {
         <span>/</span>
         <span>Project MECI</span>
       </nav>
-      <header>
-        <span className="eyebrow">MOBILE ENGINEERING CASE STUDY</span>
-        <h1>Project MECI</h1>
-        <p className="case-subtitle">Market Engagement & Client Interface</p>
-        <p>Building clear mobile interfaces for fast-moving markets.</p>
-        <a className="primary" href={localUrl("/?view=order")}>
-          Try the interactive order book →
-        </a>
+      <header className="meci-hero">
+        <div>
+          <span className="eyebrow">MOBILE ENGINEERING / CASE STUDY</span>
+          <h1>Project MECI</h1>
+          <p className="case-subtitle">Market Engagement & Client Interface</p>
+          <p>
+            Fast markets.
+            <br />
+            Clear mobile decisions.
+          </p>
+          <a className="primary" href={localUrl("/?view=order")}>
+            Try the interactive order book <ArrowUpRight size={17} />
+          </a>
+        </div>
+        <figure
+          className="meci-preview"
+          aria-label="Illustrative BBCA market depth preview"
+        >
+          <div className="preview-top">
+            <span>
+              MECI <small>/ MARKET VIEW</small>
+            </span>
+            <span className="preview-dot">SIMULATED</span>
+          </div>
+          <div className="preview-quote">
+            <div>
+              <span>BBCA</span>
+              <strong>7,125</strong>
+            </div>
+            <span className="negative">−75 (−1.04%)</span>
+          </div>
+          <svg
+            className="preview-chart"
+            viewBox="0 0 400 90"
+            role="img"
+            aria-label="Illustrative price sparkline"
+          >
+            <path
+              d="M0 70H400M0 35H400"
+              stroke="#302839"
+              strokeDasharray="3 6"
+            />
+            <path
+              d="M0 65 L22 58 L40 63 L62 38 L85 44 L110 30 L135 42 L160 20 L183 32 L205 26 L230 49 L252 40 L277 52 L305 39 L330 46 L355 30 L375 38 L400 32"
+              fill="none"
+              stroke="#b6a0d1"
+              strokeWidth="2.5"
+            />
+          </svg>
+          <div className="preview-book-head">
+            <span>LOT</span>
+            <span>BID</span>
+            <span>ASK</span>
+            <span>LOT</span>
+          </div>
+          {[0, 1, 2, 3, 4].map((i) => (
+            <div className="preview-book-row" key={i}>
+              <span
+                className="preview-bid"
+                style={{ backgroundSize: `${35 + i * 13}% 100%` }}
+              >
+                {(34200 + i * 12917).toLocaleString("en-US")}
+              </span>
+              <strong className="negative">
+                {(7100 - i * 25).toLocaleString("en-US")}
+              </strong>
+              <strong
+                className={
+                  i < 3 ? "negative" : i === 3 ? "preview-neutral" : "positive"
+                }
+              >
+                {(7125 + i * 25).toLocaleString("en-US")}
+              </strong>
+              <span
+                className="preview-ask"
+                style={{ backgroundSize: `${22 + i * 12}% 100%` }}
+              >
+                {(8763 + i * 7642).toLocaleString("en-US")}
+              </span>
+            </div>
+          ))}
+          <figcaption>
+            Illustrative interface · Fictional market data
+          </figcaption>
+        </figure>
       </header>
       <dl className="case-facts">
         <div>
@@ -59,85 +151,174 @@ export default function MeciCaseStudy() {
           <dd>Mobile & frontend</dd>
         </div>
         <div>
-          <dt>Core technologies</dt>
+          <dt>Built with</dt>
           <dd>React Native · TypeScript · Kotlin</dd>
         </div>
       </dl>
-      <section>
-        <h2>The work</h2>
-        <p>
-          My securities application work spans order books, running trades,
-          watchlists, portfolios, order entry, financial charts, KYC, and tax
-          reporting. These interfaces bring changing market information and
-          transaction workflows into a mobile experience.
-        </p>
-        <p>
-          MECI is the public alias for this case study. The interactive
-          portfolio uses fictional market data and local simulated orders; its
-          architecture illustrates engineering concepts rather than reproducing
-          an employer’s internal system.
-        </p>
+      <section className="meci-scope">
+        <div className="meci-section-heading">
+          <span className="eyebrow">01 / THE WORK</span>
+          <h2>From market signal to user action.</h2>
+        </div>
+        <div className="meci-scope-grid">
+          <article>
+            <Activity size={24} />
+            <h3>Observe</h3>
+            <p>
+              Order books · Running trades
+              <br />
+              Watchlists · Financial charts
+            </p>
+          </article>
+          <article>
+            <MousePointer2 size={24} />
+            <h3>Act</h3>
+            <p>
+              Order entry
+              <br />
+              Portfolio views
+            </p>
+          </article>
+          <article>
+            <ShieldCheck size={24} />
+            <h3>Manage</h3>
+            <p>
+              KYC
+              <br />
+              Tax reporting
+            </p>
+          </article>
+        </div>
       </section>
-      <section>
-        <h2>Realtime data, deliberate rendering</h2>
-        <ol className="case-flow">
-          <li>Receive market events</li>
-          <li>Normalize and retain bounded state</li>
-          <li>Update the relevant interface</li>
-        </ol>
-        <p>
-          Incoming data and screen refreshes have different responsibilities.
-          Keeping them separate allows components to subscribe to the
-          information they need without making every market event a full-screen
-          update.
-        </p>
-        <p>
-          In this browser demo, a seeded simulator supplies the order book,
-          trade tape, and packet visualization. Histories are bounded, and
-          interface updates are coalesced. There is no live exchange or
-          WebSocket connection.
-        </p>
+      <section className="meci-engineering">
+        <div className="meci-section-heading">
+          <span className="eyebrow">02 / ENGINEERING DECISIONS</span>
+          <h2>Three boundaries. One coherent experience.</h2>
+        </div>
+        <article className="meci-decision">
+          <div>
+            <span className="meci-decision-number">01</span>
+            <h3>Realtime data, deliberate rendering</h3>
+            <p>Receive continuously. Render deliberately.</p>
+          </div>
+          <div>
+            <ol className="meci-diagram">
+              <li>
+                <Radio size={22} />
+                <strong>Market events</strong>
+                <small>Receive</small>
+              </li>
+              <li>
+                <Database size={22} />
+                <strong>Bounded state</strong>
+                <small>Normalize</small>
+              </li>
+              <li>
+                <Layers3 size={22} />
+                <strong>UI updates</strong>
+                <small>Batch</small>
+              </li>
+            </ol>
+            <details>
+              <summary>Why separate data from rendering?</summary>
+              <p>
+                Components subscribe to the data they need instead of refreshing
+                the full screen on every event. In this browser demo, one seeded
+                simulator drives the book, trade tape, and packet visualization,
+                with bounded histories and coalesced updates.
+              </p>
+            </details>
+          </div>
+        </article>
+        <article className="meci-decision">
+          <div>
+            <span className="meci-decision-number">02</span>
+            <h3>Native where it matters</h3>
+            <p>Choose the surface for the job.</p>
+          </div>
+          <div>
+            <ol className="meci-diagram">
+              <li>
+                <Smartphone size={22} />
+                <strong>React Native</strong>
+                <small>Interface</small>
+              </li>
+              <li>
+                <Cable size={22} />
+                <strong>Bridge</strong>
+                <small>Integration</small>
+              </li>
+              <li>
+                <Cpu size={22} />
+                <strong>Kotlin</strong>
+                <small>Android APIs</small>
+              </li>
+            </ol>
+            <details>
+              <summary>When does native code help?</summary>
+              <p>
+                Kotlin integrations extend the mobile app where platform APIs or
+                rendering requirements warrant native code. The cost of crossing
+                the bridge matters too. This browser demo illustrates the
+                boundary; it does not execute the production native modules.
+              </p>
+            </details>
+          </div>
+        </article>
+        <article className="meci-decision">
+          <div>
+            <span className="meci-decision-number">03</span>
+            <h3>Predictable order entry</h3>
+            <p>A changing market. A stable decision.</p>
+          </div>
+          <div>
+            <ol className="meci-diagram">
+              <li>
+                <MousePointer2 size={22} />
+                <strong>Choose price</strong>
+                <small>Capture</small>
+              </li>
+              <li>
+                <ShieldCheck size={22} />
+                <strong>Check lots</strong>
+                <small>Validate</small>
+              </li>
+              <li>
+                <Check size={22} />
+                <strong>Confirm</strong>
+                <small>Acknowledge</small>
+              </li>
+            </ol>
+            <details>
+              <summary>What keeps the ticket predictable?</summary>
+              <p>
+                The selected limit price stays fixed while market data changes.
+                The demo accepts 1–10,000 whole lots, calculates 100 shares per
+                lot, and explicitly confirms a local simulated order.
+              </p>
+            </details>
+          </div>
+        </article>
       </section>
-      <section>
-        <h2>Native integration</h2>
+      <aside className="meci-disclosure">
+        <Info size={17} />
         <p>
-          React Native provides the mobile interface, while Kotlin integrations
-          extend the app where Android APIs or rendering requirements warrant
-          native code. The engineering decision includes the cost of crossing
-          that boundary, not just drawing performance.
+          MECI is a public case-study alias. Prices and orders are simulated;
+          the diagrams are illustrative. No live exchange connection or real
+          transactions.
         </p>
-        <p>
-          The portfolio demo runs in the browser. It does not execute the
-          production mobile application or its native modules.
-        </p>
-      </section>
-      <section>
-        <h2>Predictable order entry</h2>
-        <ol className="case-flow">
-          <li>Capture a selected price</li>
-          <li>Validate whole lots</li>
-          <li>Confirm the result</li>
-        </ol>
-        <p>
-          The demo keeps the selected limit price stable while the market
-          changes. Its ticket accepts 1–10,000 whole lots, shows a total based
-          on 100 shares per lot, and clearly identifies the result as a
-          simulation. No actual transaction occurs.
-        </p>
-      </section>
-      <section>
-        <h2>Explore the implementation</h2>
-        <p>
-          Use the interactive order book to select a price, inspect market
-          depth, and submit a local simulated order. The Engineering tab
-          provides visual explanations of realtime updates, native integration,
-          and order states.
-        </p>
+      </aside>
+      <section className="meci-next">
+        <div>
+          <span className="eyebrow">03 / TRY IT</span>
+          <h2>Put the interface through its paces.</h2>
+          <p>Pick a price. Set the lots. See the result.</p>
+        </div>
         <div className="case-links">
           <a className="primary" href={localUrl("/?view=order")}>
-            Open the demo →
+            Open the demo <ArrowUpRight size={17} />
           </a>
-          <a href={localUrl("/resume")}>Read my experience and skills →</a>
+          <a href={localUrl("/resume")}>Experience & skills →</a>
         </div>
       </section>
       <footer>
