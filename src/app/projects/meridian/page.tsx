@@ -179,12 +179,26 @@ export default function MeridianCaseStudy() {
       </header>
 
       <figure className="meridian-screenshot">
-        <img
-          src={localUrl("/projects/meridian/meridian-dashboard.png")}
-          alt="Meridian dashboard showing weekday and time filters, transport modes, five mobility KPIs, a directed district flow map, and an origin-to-mode-to-destination Sankey diagram"
-          width="1600"
-          height="1000"
-        />
+        <picture>
+          <source
+            type="image/webp"
+            srcSet={`${localUrl(
+              "/projects/meridian/meridian-dashboard-640.webp",
+            )} 640w, ${localUrl(
+              "/projects/meridian/meridian-dashboard-960.webp",
+            )} 960w, ${localUrl(
+              "/projects/meridian/meridian-dashboard-1600.webp",
+            )} 1600w`}
+            sizes="(max-width: 660px) calc(100vw - 28px), (max-width: 1280px) calc(100vw - 80px), 1120px"
+          />
+          <img
+            src={localUrl("/projects/meridian/meridian-dashboard.png")}
+            alt="Meridian dashboard showing weekday and time filters, transport modes, five mobility KPIs, a directed district flow map, and an origin-to-mode-to-destination Sankey diagram"
+            width="1600"
+            height="1000"
+            decoding="async"
+          />
+        </picture>
         <figcaption>
           The live Meridian explorer at its default weekday 07:00–10:00 view.
           All districts, routes, and mobility records are simulated.

@@ -43,8 +43,12 @@
   box-shadow: 0 28px 80px #0006;
 }
 
+.meridian-screenshot picture,
 .meridian-screenshot img {
   display: block;
+}
+
+.meridian-screenshot img {
   width: 100%;
   height: auto;
 }

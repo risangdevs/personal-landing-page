@@ -14,12 +14,27 @@ export function FeaturedWork({ onOrder }: { onOrder: () => void }) {
           href={localUrl("/projects/meridian")}
           aria-label="Read the Meridian case study"
         >
-          <img
-            src={localUrl("/projects/meridian/meridian-dashboard.png")}
-            alt="Meridian dashboard showing mobility filters, five KPIs, a district flow map, and an origin-to-mode-to-destination Sankey diagram"
-            width="1600"
-            height="1000"
-          />
+          <picture>
+            <source
+              type="image/webp"
+              srcSet={`${localUrl(
+                "/projects/meridian/meridian-dashboard-640.webp",
+              )} 640w, ${localUrl(
+                "/projects/meridian/meridian-dashboard-960.webp",
+              )} 960w, ${localUrl(
+                "/projects/meridian/meridian-dashboard-1600.webp",
+              )} 1600w`}
+              sizes="(max-width: 660px) calc(100vw - 88px), (max-width: 1250px) 45vw, 520px"
+            />
+            <img
+              src={localUrl("/projects/meridian/meridian-dashboard.png")}
+              alt="Meridian dashboard showing mobility filters, five KPIs, a district flow map, and an origin-to-mode-to-destination Sankey diagram"
+              width="1600"
+              height="1000"
+              loading="lazy"
+              decoding="async"
+            />
+          </picture>
           <span>LIVE APPLICATION · SIMULATED DATA</span>
         </a>
         <div className="featured-description">

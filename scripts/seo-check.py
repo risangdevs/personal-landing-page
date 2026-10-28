@@ -48,5 +48,7 @@ urls=[e.text for e in ET.parse('out/sitemap.xml').iter('{http://www.sitemaps.org
 assert set(urls)=={base+p for p in paths},urls
 assert Path('out/social-preview.png').read_bytes().startswith(b'\x89PNG')
 assert Path('out/projects/meridian/meridian-dashboard.png').read_bytes().startswith(b'\x89PNG')
+for width in (640, 960, 1600):
+    assert Path(f'out/projects/meridian/meridian-dashboard-{width}.webp').read_bytes().startswith(b'RIFF')
 assert Path('out/.nojekyll').exists()
 print('SEO export passed: crawlable content, canonical URLs, metadata, internal links, sitemap, image, and .nojekyll')
