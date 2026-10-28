@@ -1,6 +1,6 @@
 # Risang / Market Systems — Follow the Data
 
-An overview-first engineering portfolio with Project MECI, an optional interactive market architecture, and a simulated order book. Visitors choose their own route.
+An overview-first engineering portfolio featuring Meridian, Project MECI, an optional interactive market architecture, and a simulated order book. Visitors choose their own route.
 
 ## Run
 
@@ -25,10 +25,10 @@ The production URL defaults to the supplied GitHub Pages address. `SITE_URL` can
 
 ## Search visibility
 
-- `/projects/meci/` contains a complete pre-rendered case study, with normal links from the homepage and résumé.
+- `/projects/meridian/` and `/projects/meci/` contain complete pre-rendered case studies, with normal links from the homepage and résumé.
 - Each page has its own title, description, canonical URL, and social metadata.
-- Person and CreativeWork JSON-LD describe the engineer and case study without invented metrics or endorsements.
-- `/sitemap.xml` lists the three canonical pages. Submit its full deployed URL in Google Search Console after publication.
+- Person, SoftwareApplication, and CreativeWork JSON-LD describe the engineer and case studies without invented metrics or endorsements.
+- `/sitemap.xml` lists the four canonical pages. Submit its full deployed URL in Google Search Console after publication.
 - GitHub project Pages serves `robots.txt` beneath the project path. Only the host-root robots file controls crawling; this project cannot override `https://risangdevs.github.io/robots.txt`.
 - Query-string demo entry links canonicalize to the homepage. No interactive state creates duplicate indexable pages.
 
@@ -37,7 +37,8 @@ The checkout is not published by these changes. Indexing and field performance n
 ## This milestone
 
 - A clear introduction and one primary “Explore my work” invitation.
-- Three entry points: MECI, How it works, and About me.
+- Three entry points: Meridian, How it works, and About me.
+- An authentic Meridian dashboard capture, live/source links, and a dedicated data-visualization case study.
 - Project and biography details appear on selection.
 - Optional 3D architecture with contextual module inspection.
 - Manual packet tracing through seven modules, using one captured market record.
@@ -49,7 +50,7 @@ Per the updated brief, Migration Chamber, Incident Room, Career Mode, Research S
 
 ## Controls
 
-- **Explore my work** or **MECI** opens the case study; **Try the order book** opens trading immediately.
+- **Explore my work** and **Meridian** lead to the flagship work section; **Try the order book** opens the MECI trading demo immediately.
 - **How it works** opens the architecture. Select a module to reveal its inspector.
 - **Follow a packet** is optional. **Continue** advances one step; Escape exits. There is no automatic progression.
 - Click an instanced packet to inspect its captured record.

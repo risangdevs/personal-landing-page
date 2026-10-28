@@ -16,7 +16,10 @@ export default function Page() {
             sameAs: [profile.github, profile.linkedin],
             knowsAbout: [
               "React Native",
+              "React",
               "TypeScript",
+              "D3.js",
+              "Data visualization",
               "Flutter",
               "Realtime financial systems",
               "HVAC research",

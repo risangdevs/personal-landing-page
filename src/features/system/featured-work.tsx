@@ -8,7 +8,54 @@ export function FeaturedWork({ onOrder }: { onOrder: () => void }) {
       aria-labelledby="featured-work-title"
     >
       <span className="eyebrow">SELECTED WORK</span>
-      <article className="featured-meci">
+      <article className="featured-project featured-meridian">
+        <a
+          className="featured-visual featured-meridian-visual"
+          href={localUrl("/projects/meridian")}
+          aria-label="Read the Meridian case study"
+        >
+          <img
+            src={localUrl("/projects/meridian/meridian-dashboard.png")}
+            alt="Meridian dashboard showing mobility filters, five KPIs, a district flow map, and an origin-to-mode-to-destination Sankey diagram"
+            width="1600"
+            height="1000"
+          />
+          <span>LIVE APPLICATION · SIMULATED DATA</span>
+        </a>
+        <div className="featured-description">
+          <span className="eyebrow">
+            FRONTEND ENGINEERING / DATA VISUALIZATION
+          </span>
+          <h2 id="featured-work-title">Meridian</h2>
+          <p>
+            Five coordinated views reveal how movement changes across a
+            fictional city—and where transportation pressure concentrates.
+          </p>
+          <span className="featured-stack">
+            React · TypeScript · D3.js · d3-sankey · Vite
+          </span>
+          <div className="featured-actions">
+            <a className="primary" href={localUrl("/projects/meridian")}>
+              Read the case study <ArrowUpRight size={16} />
+            </a>
+            <a
+              href="https://risangdevs.github.io/meridian/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Open live demo <ArrowUpRight size={15} />
+            </a>
+            <a
+              href="https://github.com/risangdevs/meridian"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Source code <ArrowUpRight size={15} />
+            </a>
+          </div>
+        </div>
+      </article>
+      <article className="featured-project featured-meci">
         <div className="featured-market" aria-hidden="true">
           <span>MECI / MARKET DEPTH</span>
           <div className="featured-prices">
@@ -25,7 +72,7 @@ export function FeaturedWork({ onOrder }: { onOrder: () => void }) {
         </div>
         <div className="featured-description">
           <span className="eyebrow">MOBILE / FRONTEND ENGINEERING</span>
-          <h2 id="featured-work-title">Project MECI</h2>
+          <h2>Project MECI</h2>
           <p>
             Realtime market interfaces, native integration, and predictable
             order entry.

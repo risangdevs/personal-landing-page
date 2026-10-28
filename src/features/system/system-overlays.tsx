@@ -36,6 +36,12 @@ export function SystemOverlays({
   ]);
   const commands = [
     { name: "System overview", action: onSystem },
+    {
+      name: "Meridian / Case study",
+      action: () => {
+        window.location.href = localUrl("/projects/meridian");
+      },
+    },
     { name: "MECI / Order engine", action: onOrder },
     { name: "Follow the data", action: onTrace },
     { name: "Profile", action: onProfile },
@@ -64,7 +70,7 @@ export function SystemOverlays({
         break;
       case "projects":
         response =
-          "MECI — Securities trading platform\nThe initial release focuses on the market → order journey. Additional project content is available in /resume.";
+          "Meridian — Urban mobility flow explorer\nMECI — Securities trading platform\nCase studies are available in /projects/meridian and /projects/meci.";
         break;
       case "experience":
         response = career

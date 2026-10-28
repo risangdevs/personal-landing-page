@@ -1,4 +1,5 @@
-export type ProjectId = "meci" | "bangjeff" | "odoo" | "native" | "research";
+export type ProjectId =
+  "meridian" | "meci" | "bangjeff" | "odoo" | "native" | "research";
 export type Project = {
   id: ProjectId;
   symbol: string;
@@ -13,6 +14,42 @@ export type Project = {
   notes: { title: string; body: string }[];
 };
 export const projects: Project[] = [
+  {
+    id: "meridian",
+    symbol: "MERIDIAN",
+    title: "Meridian — Urban Mobility Flow Explorer",
+    category: "Data visualization application",
+    status: "Live",
+    color: "#a9df85",
+    initials: "me",
+    stack: ["React", "TypeScript", "D3.js", "d3-sankey", "Vite"],
+    description:
+      "A coordinated analytical application for exploring how movement changes across a fictional city—and where transportation pressure concentrates.",
+    areas: [
+      "Geographic flow map",
+      "Sankey diagram",
+      "Brushable timeline",
+      "Congestion heatmap",
+      "Animated district ranking",
+      "Shared analytical filters",
+      "Weighted KPIs",
+      "Filtered CSV export",
+    ],
+    notes: [
+      {
+        title: "One analytical state, five views",
+        body: "Map, Sankey, timeline, heatmap, ranking, KPIs, and export derive from the same documented filter semantics.",
+      },
+      {
+        title: "React and D3 with clear ownership",
+        body: "React owns application state and UI. D3 owns chart geometry, layouts, interactions, and transitions inside dedicated SVG layers.",
+      },
+      {
+        title: "Simulated data, explicit limits",
+        body: "The 60,725 reproducible aggregate records describe a fictional 20-district city. Findings demonstrate the workflow, not facts about a real place.",
+      },
+    ],
+  },
   {
     id: "meci",
     symbol: "MECI",

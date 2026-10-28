@@ -1110,7 +1110,7 @@
   letter-spacing: 1.6px;
   color: #7f9186;
 }
-.featured-meci {
+.featured-project {
   display: grid;
   grid-template-columns: 0.8fr 1.2fr;
   gap: 48px;
@@ -1120,6 +1120,44 @@
   border: 1px solid #202620;
   border-radius: 12px;
   background: #0d0f0e;
+}
+.featured-project + .featured-project {
+  margin-top: 18px;
+}
+.featured-meridian {
+  grid-template-columns: 1.08fr 0.92fr;
+}
+.featured-visual {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  min-width: 0;
+  border: 1px solid #2b342e;
+  border-radius: 8px;
+  background: #101411;
+}
+.featured-visual img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  object-position: top left;
+  transition: transform 0.35s ease;
+}
+.featured-visual:hover img {
+  transform: scale(1.015);
+}
+.featured-visual > span {
+  position: absolute;
+  left: 14px;
+  bottom: 12px;
+  padding: 6px 8px;
+  border: 1px solid #344139;
+  background: #0d0f0ee8;
+  color: #b7dc95;
+  font: 8px monospace;
+  letter-spacing: 1px;
 }
 .featured-market {
   padding: 24px;
@@ -1203,6 +1241,14 @@
   font-size: 13px;
   min-height: 44px;
 }
+.featured-actions > a:not(.primary) {
+  color: #9ca69f;
+  min-height: 44px;
+  align-items: center;
+}
+.featured-actions > a:not(.primary):hover {
+  color: #c5cbc6;
+}
 @media (max-width: 1250px) {
   .featured-work {
     margin-inline: 30px;
@@ -1215,7 +1261,7 @@
   .experience-brand b {
     display: none;
   }
-  .featured-meci {
+  .featured-project {
     gap: 25px;
     padding: 24px;
   }
@@ -1251,7 +1297,8 @@
   .featured-work {
     margin: 10px 22px 35px;
   }
-  .featured-meci {
+  .featured-project,
+  .featured-meridian {
     grid-template-columns: 1fr;
     gap: 24px;
     padding: 22px;

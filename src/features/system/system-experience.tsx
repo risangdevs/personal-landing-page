@@ -202,7 +202,7 @@ export function SystemExperience() {
                   Explore my work <ArrowRight size={18} />
                 </a>
                 <span className="quiet-intro-note">
-                  Start with MECI, a securities trading project.
+                  Start with Meridian, a coordinated mobility explorer.
                 </span>
               </div>
               <div
@@ -229,7 +229,7 @@ export function SystemExperience() {
                   }
                 >
                   <strong>
-                    MECI <ArrowUpRight size={14} />
+                    Meridian <ArrowUpRight size={14} />
                   </strong>
                   <span>Explore the work</span>
                 </button>
@@ -257,7 +257,9 @@ export function SystemExperience() {
                 tabIndex={-1}
                 className="overview-detail"
                 role="region"
-                aria-label={detail === "work" ? "Project MECI" : "About Risang"}
+                aria-label={
+                  detail === "work" ? "Project Meridian" : "About Risang"
+                }
               >
                 <button
                   className="detail-close"
@@ -266,7 +268,7 @@ export function SystemExperience() {
                 >
                   <X size={19} />
                 </button>
-                <OverviewDetail view={detail} onOrder={openOrder} />
+                <OverviewDetail view={detail} />
               </div>
             )}
           </>

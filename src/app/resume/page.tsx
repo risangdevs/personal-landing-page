@@ -58,8 +58,8 @@ export default function Resume() {
           <article key={p.id}>
             <div className="resume-row">
               <h3>
-                {p.id === "meci" ? (
-                  <a href={localUrl("/projects/meci")}>{p.title}</a>
+                {p.id === "meridian" || p.id === "meci" ? (
+                  <a href={localUrl(`/projects/${p.id}`)}>{p.title}</a>
                 ) : (
                   p.title
                 )}

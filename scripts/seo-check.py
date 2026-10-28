@@ -21,25 +21,32 @@ class Page(HTMLParser):
         if tag=='script': self.in_json=False
 
 base='https://risangdevs.github.io/personal-landing-page/'
-paths=['','projects/meci/','resume/']
+paths=['','projects/meridian/','projects/meci/','resume/']
 for route in paths:
     p=Page(Path('out',route,'index.html').read_text())
     assert p.canonical==[base+route], p.canonical
     assert p.meta['og:url']==base+route
     assert p.meta['description']
-    assert p.meta['og:image']==base+'social-preview.png'
+    expected_image = base + ('projects/meridian/meridian-dashboard.png' if route=='projects/meridian/' else 'social-preview.png')
+    assert p.meta['og:image']==expected_image
     assert p.meta['twitter:card']=='summary_large_image'
     for link in p.links:
         if link.startswith('/'):
             assert link.startswith('/personal-landing-page/'), link
             file=Path('out',urlparse(link).path.removeprefix('/personal-landing-page/'))
             assert file.exists(), link
-    if not route: assert '/personal-landing-page/projects/meci/' in p.links
+    if not route:
+        assert '/personal-landing-page/projects/meridian/' in p.links
+        assert '/personal-landing-page/projects/meci/' in p.links
+    if route=='projects/meridian/':
+        assert p.structured[0]['@type']=='SoftwareApplication'
+        assert 'Five perspectives. One analytical state.' in ''.join(p.text)
     if route=='projects/meci/':
         assert p.structured[0]['@type']=='CreativeWork'
         assert 'Realtime data, deliberate rendering' in ''.join(p.text)
 urls=[e.text for e in ET.parse('out/sitemap.xml').iter('{http://www.sitemaps.org/schemas/sitemap/0.9}loc')]
 assert set(urls)=={base+p for p in paths},urls
 assert Path('out/social-preview.png').read_bytes().startswith(b'\x89PNG')
+assert Path('out/projects/meridian/meridian-dashboard.png').read_bytes().startswith(b'\x89PNG')
 assert Path('out/.nojekyll').exists()
 print('SEO export passed: crawlable content, canonical URLs, metadata, internal links, sitemap, image, and .nojekyll')

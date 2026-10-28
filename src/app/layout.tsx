@@ -8,7 +8,7 @@ import "./simplified.css";
 export const metadata: Metadata = {
   ...pageMetadata(
     "Risang Ganie Salam — Mobile & Frontend Engineer",
-    "Risang Ganie Salam, Mobile & Frontend Engineer in Jakarta. React Native, TypeScript, and realtime financial interfaces. Explore Project MECI and professional experience.",
+    "Risang Ganie Salam, Mobile & Frontend Engineer in Jakarta. React, TypeScript, D3 data visualization, React Native, and realtime interfaces. Explore Meridian, Project MECI, and professional experience.",
     "/",
   ),
   metadataBase: siteUrl ? new URL(siteUrl) : undefined,

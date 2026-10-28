@@ -2,27 +2,27 @@
 import { localUrl } from "@/lib/paths";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { profile } from "@/data/profile";
-export function OverviewDetail({
-  view,
-  onOrder,
-}: {
-  view: "work" | "about";
-  onOrder: () => void;
-}) {
+export function OverviewDetail({ view }: { view: "work" | "about" }) {
   return view === "work" ? (
     <>
-      <span className="eyebrow">SECURITIES TRADING / PROJECT ALIAS</span>
-      <h2>Project MECI</h2>
-      <h3>Market Engagement & Client Interface</h3>
+      <span className="eyebrow">FRONTEND ENGINEERING / DATA VISUALIZATION</span>
+      <h2>Meridian</h2>
+      <h3>Urban Mobility Flow Explorer</h3>
       <p>
-        Mobile engineering for a securities trading platform. Explore an
-        interactive order book to see the work in action.
+        A coordinated React and D3 application for exploring time, direction,
+        mode, and congestion across a simulated 20-district city.
       </p>
       <div className="about-links">
-        <button className="primary" onClick={onOrder}>
-          Try the order book <ArrowRight size={16} />
-        </button>
-        <a href={localUrl("/projects/meci")}>Read the case study ↗</a>
+        <a className="primary" href={localUrl("/projects/meridian")}>
+          Read the case study <ArrowRight size={16} />
+        </a>
+        <a
+          href="https://risangdevs.github.io/meridian/"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Open the live explorer ↗
+        </a>
       </div>
     </>
   ) : (
