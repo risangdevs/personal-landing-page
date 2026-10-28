@@ -189,20 +189,22 @@ export function SystemExperience() {
               <div className="quiet-intro">
                 <span className="eyebrow">{profile.name.toUpperCase()}</span>
                 <h1>
-                  I build realtime
+                  I build data-rich
                   <br />
-                  mobile experiences.
+                  frontend experiences.
                 </h1>
                 <p>
                   Mobile & Frontend Engineer.
                   <br />
-                  React Native, fintech, and the systems behind the screen.
+                  Mobile interfaces, realtime systems, and interactive data
+                  visualization.
                 </p>
                 <a className="primary" href="#work">
                   Explore my work <ArrowRight size={18} />
                 </a>
                 <span className="quiet-intro-note">
-                  Start with Meridian, a coordinated mobility explorer.
+                  Explore coordinated mobility data and realtime market
+                  interfaces.
                 </span>
               </div>
               <div
@@ -229,9 +231,9 @@ export function SystemExperience() {
                   }
                 >
                   <strong>
-                    Meridian <ArrowUpRight size={14} />
+                    Selected work <ArrowUpRight size={14} />
                   </strong>
-                  <span>Explore the work</span>
+                  <span>Meridian + MECI</span>
                 </button>
                 <button className="overview-node node-how" onClick={how}>
                   <strong>

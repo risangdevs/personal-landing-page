@@ -37,7 +37,7 @@ The checkout is not published by these changes. Indexing and field performance n
 ## This milestone
 
 - A clear introduction and one primary “Explore my work” invitation.
-- Three entry points: Meridian, How it works, and About me.
+- Three entry points: Selected work, How it works, and About me.
 - An authentic Meridian dashboard capture, live/source links, and a dedicated data-visualization case study.
 - Project and biography details appear on selection.
 - Optional 3D architecture with contextual module inspection.
@@ -50,7 +50,7 @@ Per the updated brief, Migration Chamber, Incident Room, Career Mode, Research S
 
 ## Controls
 
-- **Explore my work** and **Meridian** lead to the flagship work section; **Try the order book** opens the MECI trading demo immediately.
+- **Explore my work** and **Selected work** lead to Meridian and MECI; **Try the order book** opens the MECI trading demo immediately.
 - **How it works** opens the architecture. Select a module to reveal its inspector.
 - **Follow a packet** is optional. **Continue** advances one step; Escape exits. There is no automatic progression.
 - Click an instanced packet to inspect its captured record.
